@@ -8,59 +8,7 @@ if (window.XMLHttpRequest) {
 } else if (window.ActiveXObject) {
 	XMLHttpRequestObject = new ActiveXObject("Microsoft.XMLHTTP");
 }
-/*
-<option value="placeholder">
-                    ---- Memes ----
-                </option>
-                <option value="Most_Interesting_Man">
-                    Most Interesting Man
-                </option>
-                <option value="Disaster_Girl">
-                    Disaster Girl
-                </option>
-                <option value="Annoying_Facebook_Girl">
-                    Annoying Facebook Girl
-                </option>
-                <option value="First_World_Problems">
-                    First World Problems
-                </option>
-                <option value="High_Expectations_Asian_Father">
-                    High Expectation Asian Father
-                </option>
-                <option value="Karate_Kyle">
-                    Karate Kyle
-                </option>
-                <option value="One_Does_Not_Simply">
-                    One Does Not Simply
-                </option>
-                <option value="Overly_Attached_Girlfriend">
-                    Overly Attached Girlfriend
-                </option>
-                <option value="Philosoraptor">
-                    Philosoraptor
-                </option>
-                <option value="Scumbag_Steve">
-                    Sc**bag Steve
-                </option>
-                <option value="Skeptical_Third_World_Kid">
-                    Skeptical Third World Kid
-                </option>
-                <option value="Success_Kid">
-                    Success Kid
-                </option>
-                <option value="Vengeance_Dad">
-                    Vengeance Dad
-                </option>
-                <option value="X_All_The_Y">
-                    X All The Y
-                </option>
-                <option value="Y_U_No">
-                    Y U NO
-                </option>
-                <option value="custom">
-                    Custom
-                </option>
-				*/
+
 $(document).ready(function() {	
 	$('#back').bind('click', function () {
 		history.back();
@@ -127,27 +75,23 @@ function getData(event) {
 	});
 }
 
-function generate() {	
+function generate() {
 	var choice = memeFileName;
-    var top = document.getElementById('top').value;
-	var bottom = document.getElementById('bottom').value;	
-	if(XMLHttpRequestObject) {
-		var newMeme = document.getElementById("newMeme");
-	  var targetURL = "generate.php?choice="+choice+"&top="+top+"&bottom="+bottom+"&devHeight="+height;
-	  XMLHttpRequestObject.open("GET",targetURL,true); 
-	  XMLHttpRequestObject.send(null); 
-	  XMLHttpRequestObject.onreadystatechange = function() {
-		  if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
-			  document.getElementById("newMeme").style.display="block";
-			  newMeme.innerHTML = XMLHttpRequestObject.responseText;
-	  	  } 
-	  } 
-	}
+	var top = $('#top').val();	
+	var bottom = $('#bottom').val();		
+	$.ajax({
+		type: "GET",
+		url: "generate.php",
+		data: { choice: choice, top: top, bottom: bottom, devHeight: height }
+	}).done(function(response) {
+		$('#newMeme').html(response);
+	});
 }
 
 function getMeme() {
-	memeFileName = document.getElementById('meme').value;
-	meme = document.getElementById('meme').options[document.getElementById('meme').selectedIndex].text;
-	document.getElementById('selectedMeme').innerHTML = meme;
-	document.getElementById('targetDiv3').innerHTML = meme;
+	//memeFileName = document.getElementById('meme').value;
+	memeFileName = $('#meme').val();
+	meme = document.getElementById('meme').options[document.getElementById('meme').selectedIndex].text;	
+	$('#selectedMeme').html(meme);
+	$('#targetDiv3').html(meme);
 }
