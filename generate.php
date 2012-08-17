@@ -2,7 +2,7 @@
 $meme		= $_GET['choice'];
 
 $path		= "memes/" . $meme . '.jpg';
-$font 		= "resources/impact.ttf";
+$font 		= "resources/fonts/impact.ttf";
 
 $rImg 	    = ImageCreateFromJPEG($path);	
 $colour 	  = imagecolorallocate($rImg, 255, 255, 255);
@@ -20,9 +20,6 @@ $imgHeight   = $imgProps[1];
 $x		   = 20;
 $lineSize	= 24;
 $fontSize	= 23;
-
-
-
 
 //I don't always stay after class....
 if(strlen($top) > $lineSize){	
