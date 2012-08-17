@@ -20,10 +20,10 @@ if($dirHandle = opendir($dir)) {
 	}
 }
 //print_r($fileNames); selected=\"selected\"
-//$response = $response . "<option value=\"placeholder\">---- Memes ----</option>";
+$response = $response . "<option value=\"placeholder\"></option>";
 for($i = 0; $i < count($fileNames); $i++) {
 	if($i == 0) {
-		$response = $response . "<option selected=\"selected\" value=\"" . $optionValues[$i] . "\">" . $optionDisplay[$i] . "</option>";
+		$response = $response . "<option value=\"" . $optionValues[$i] . "\">" . $optionDisplay[$i] . "</option>";
 	} else {
 		$response = $response . "<option value=\"" . $optionValues[$i] . "\">" . $optionDisplay[$i] . "</option>";
 	}

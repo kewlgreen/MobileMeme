@@ -10,12 +10,15 @@ if (window.XMLHttpRequest) {
 }
 
 $(document).ready(function() {	
-	$('#back').bind('click', function () {
+	$('.back').bind('click', function () {
 		history.back();
 	});
-	$('#up').hide(0, null, null);
-	$('#next').hide(0, null, null);
-	
+	$('#top').bind('keyup', function() {
+		generate();
+	});
+	$('#bottom').bind('keyup', function() {
+		generate();
+	});
 	$(window).bind('orientationchange', orientationHandler);
 	$(document).delegate("#next", "click", function(){
 		getMeme();
@@ -30,15 +33,18 @@ $(document).ready(function() {
 	$(document).delegate("#meme", "pageinit", function(){
 		getData();
 	});
+	$(document).delegate("#caption", "pageinit", function(){
+		$('#top').width($('#memePreview').width());
+		$('#bottom').width($('#memePreview').width());
+	});
 	$(document).delegate("#up", "click", function(){
 		alert("We're sorry! This feature has yet to be implemented!");
 	});	
     loadMemeList();		
 	orientationHandler();
+	$('#next').css("display", "none");
+	$('#up').css("display", "none");
 });
-
-
-
 function loadMemeList() {
 	$.ajax({
 		type: "GET",
@@ -49,22 +55,21 @@ function loadMemeList() {
 	});
 }
 
-function orientationHandler(event) {
+function orientationHandler() {
 	width 	 = $(document).width();
 	height 	= $(document).height();
 	getData();
 }
 
-function getData(event) {
-	if($('#meme').val() == "Custom") {
+function getData() {
+	if($('#meme').val() == "Silhouette" || $('#meme').val() == "placeholder") {
 		$('#next').hide('fast');
-		$('#up').show('fast');
+		//$('#up').show('fast');
 	} else {
 		$('#next').show('fast');
-		$('#up').hide('fast');
+		//$('#up').hide('fast');
 	}
 	var choice = $('#meme').val();
-
 	$.ajax({
 		type: "GET",
 		url: "preview.php",
@@ -83,8 +88,9 @@ function generate() {
 		type: "GET",
 		url: "generate.php",
 		data: { choice: choice, top: top, bottom: bottom, devHeight: height }
-	}).done(function(response) {
-		$('#newMeme').html(response);
+	}).done(function(response) {	
+		$('#targetDiv2').html(response);
+		$('#newMeme').html(response);		
 	});
 }
 

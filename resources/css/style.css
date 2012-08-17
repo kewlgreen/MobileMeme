@@ -19,27 +19,18 @@ div#targetDiv2 {
 div#userCaps {
    min-width: 60%;
   max-height: 25%;
-      border: solid 2px;
-border-color: #0F0;
-	   clear: both;	
 	  margin: 0 auto;
 }
 div#group {
-      border: solid 2px;
-border-color: #0F0;
 	  margin: 0 auto;
 }
 [data-role="content"] {
    max-width: 100%;
-      border: solid 2px;
-border-color: #0F0;
 margin: 0 auto;
 }
 .nav {	
 	min-height: 100%;
 	width: 12%;
-	border: solid 2px;
-	border-color: red;
 }
 #leftNav {
 	float: left;
@@ -54,12 +45,14 @@ div#global-header {
 	   width: 100%;
 	 z-index: 99999;
 }
-div#global-footer {
-	
+div#global-footer {	
 }
 input {
+	font-family: "Times New Roman",Arial;
+	font-size: 10px;
   text-align: center;	
-   min-width: 100%;
+  margin: 0 auto;
+   /*min-width: 100%;*/
 }
 * {
 	margin: 0px;

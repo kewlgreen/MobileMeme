@@ -32,10 +32,6 @@
             </a>            
         </div>
         <div data-role="content" >	    
-            <div class="nav" id="leftNav">
-            </div>
-            <div class="nav" id="rightNav">
-            </div>
             <p>
                 Welcome to MemeGen. Please select a meme below.
             </p>	
@@ -63,7 +59,7 @@
             <h1>
                 About
             </h1>
-            <a href="#index" data-role="button">
+            <a href="" class="back" data-role="button">
                 Back
             </a>
         </div>
@@ -91,7 +87,7 @@
             <h1>
                 Caption Selection
             </h1>
-            <a href="" data-role="button" data-icon="back" id="back">
+            <a href="" data-role="button" data-icon="back" class="back">
                 Back
             </a>
         </div>
@@ -108,11 +104,11 @@
                         <label for="top">
                             Top Caption:
                          </label>
-                        <input type="text" id="top" maxlength="35" />
+                        <input type="text" id="top" maxlength="56" />
                         <label for="bottom">
                             Bottom Caption:
                          </label>
-                        <input type="text" id="bottom" maxlength="35"/>
+                        <input type="text" id="bottom" maxlength="56"/>
                         <a href="#generate" data-role="button" id="gen">
                             Generate!
                         </a>				

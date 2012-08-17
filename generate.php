@@ -18,8 +18,9 @@ $imgWidth	= $imgProps[0];
 $imgHeight   = $imgProps[1];
 
 $x		   = 20;
-$lineSize	= 24;
+$lineSize	= 28;
 $fontSize	= 23;
+$bbox = imagettfbbox(10, 45, $font, 'Powered by PHP ' . phpversion());
 
 //I don't always stay after class....
 if(strlen($top) > $lineSize){	
@@ -68,7 +69,7 @@ if($show){
 $myUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 $queryString = $_SERVER['QUERY_STRING'];
 
-echo '<img src="'.$myUrl.'?'.$queryString.'&show=true'.'" height="' . $devHeight * 0.50 . 'px" />';
+echo '<img src="'.$myUrl.'?'.$queryString.'&show=true'.'" height="' . $devHeight * 0.40 . 'px" />';
 
 /**
  * Writes the given text with a border into the image using TrueType fonts.
