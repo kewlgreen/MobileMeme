@@ -1,0 +1,67 @@
+#bold {
+ font-weight: bold;
+}
+body {
+  text-align: center;
+}
+button#next {
+	 display: inline-block;
+}
+button#up {
+	 display: inline-block;	
+}
+div#targetDiv {
+	display: block;
+}
+div#targetDiv2 {
+	display: block;
+}
+div#userCaps {
+   min-width: 60%;
+  max-height: 25%;
+      border: solid 2px;
+border-color: #0F0;
+	   clear: both;	
+	  margin: 0 auto;
+}
+div#group {
+      border: solid 2px;
+border-color: #0F0;
+	  margin: 0 auto;
+}
+[data-role="content"] {
+   max-width: 100%;
+      border: solid 2px;
+border-color: #0F0;
+margin: 0 auto;
+}
+.nav {	
+	min-height: 100%;
+	width: 12%;
+	border: solid 2px;
+	border-color: red;
+}
+#leftNav {
+	float: left;
+}
+#rightNav {
+	float: right;
+}
+div#global-header {
+	position: absolute;
+		 top: 0px;
+	 	left: 0px;
+	   width: 100%;
+	 z-index: 99999;
+}
+div#global-footer {
+	
+}
+input {
+  text-align: center;	
+   min-width: 100%;
+}
+* {
+	margin: 0px;
+	padding: 0px;
+}
